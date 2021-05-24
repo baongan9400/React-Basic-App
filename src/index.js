@@ -1,17 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const mydog = {
+  name:"Kiss",
+  color: "black",
+  speak(){
+  	console.log(`${this.name} parks gowgow`);
+  }
+};
+const dog_owner = {
+  name:"Dang Bao Ngan",
+  age: 21,
+  mydog
+};
+const element1 = (
+  <div className="hello">
+    <h1>Hello, {dog_owner.name}. I'm {dog_owner.age}</h1>
+    <h2>My dog is {dog_owner.mydog.name} and {dog_owner.mydog.color}</h2>
+  </div>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+var numbers = [1,3,5,7,9]
+var doubleNumber = numbers.map((item) => item * 2 + "-");
+
+const element2 = (
+  <div className="number">
+    <h3>My numbers are {doubleNumber}</h3>
+  </div>
+);
+
+const element = React.createElement(
+  React.Fragment,
+  null,
+  element1,
+  element2
+)
+ReactDOM.render(element,
+                document.getElementById('root'));
