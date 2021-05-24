@@ -30,11 +30,24 @@ const element2 = (
   </div>
 );
 
-const element = React.createElement(
-  React.Fragment,
-  null,
-  element1,
-  element2
-)
-ReactDOM.render(element,
-                document.getElementById('root'));
+function updateTimer(){
+  const element3 = (
+    <div>
+      <h2>What time is it?</h2>
+      <h2>It is {new Date().toLocaleTimeString()}</h2>
+    </div>
+  );
+  const _element = React.createElement(
+    React.Fragment,
+    null,
+    element1,
+    element2,
+    element3
+  );
+  ReactDOM.render(_element,
+    document.getElementById('root'));
+}
+setInterval(updateTimer,1000)//do updateTimer every 1s
+
+
+
