@@ -46,7 +46,48 @@ class UserInfor extends React.Component{
     );
   }
 }
-const element =<UserInfor name="Dang Thi Bao Ngan" age="21" />;
- ReactDOM.render(
-    element,
+
+class Counter extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {seconds: 0};//private
+  }
+  counting(){
+    //Setter
+    this.setState(
+      (prevState, props) => ({
+        seconds : prevState.seconds + 1
+      })
+    );
+  }
+  componentDidMount(){
+      this.timerID = setInterval(
+        () => this.counting(), 1000
+      )
+  }
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
+ 
+  render(){
+    return (
+      <div>
+        <h2>Time is running!</h2>
+        <h2>Seconds: {this.state.seconds}s</h2>
+      </div>
+    );
+  }
+}
+
+const element1 =<UserInfor name="Dang Thi Bao Ngan" age="21" />;
+const element2 =<Counter/>;
+
+const elements = React.createElement(
+  React.Fragment,
+  null,
+  element1,
+  element2,
+);
+ReactDOM.render(
+    elements,
     document.getElementById('root'));
