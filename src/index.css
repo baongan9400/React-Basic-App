@@ -11,11 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.hello {
+.hello, .UserDetail {
   padding-left: 40px;
   color: blueviolet;
 }
-.number {
+.number, .Personality {
   padding-left: 60px;
-  color: rgb(11, 4, 51);
+  color: rgb(231, 47, 201);
+}
+.UserDog {
+  padding-left: 60px;
+  color: rgb(33, 152, 221);
 }
