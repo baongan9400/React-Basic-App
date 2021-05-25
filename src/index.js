@@ -2,52 +2,51 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const mydog = {
-  name:"Kiss",
-  color: "black",
-  speak(){
-  	console.log(`${this.name} parks gowgow`);
-  }
-};
-const dog_owner = {
-  name:"Dang Bao Ngan",
-  age: 21,
-  mydog
-};
-const element1 = (
-  <div className="hello">
-    <h1>Hello, {dog_owner.name}. I'm {dog_owner.age}</h1>
-    <h2>My dog is {dog_owner.mydog.name} and {dog_owner.mydog.color}</h2>
-  </div>
-);
-
-var numbers = [1,3,5,7,9]
-var doubleNumber = numbers.map((item) => item * 2 + "-");
-
-const element2 = (
-  <div className="number">
-    <h3>My numbers are {doubleNumber}</h3>
-  </div>
-);
-
-function updateTimer(){
-  const element3 = (
+//Functional Component
+/*function UserInfor(props){
+  return(
     <div>
-      <h2>What time is it?</h2>
-      <h2>It is {new Date().toLocaleTimeString()}</h2>
+      <h2>Name: {props.name}<br></br>
+          Age: {props.age}
+      </h2>
     </div>
   );
-  const _element = React.createElement(
-    React.Fragment,
-    null,
-    element1,
-    element2,
-    element3
-  );
-  ReactDOM.render(_element,
-    document.getElementById('root'));
+}*/
+
+//Class Component
+class UserDetail extends React.Component{
+  render(){
+    return (
+      <div className="UserDetail">
+          <h2>Name: {this.props.name}<br></br>
+              Age: {this.props.age}
+          </h2>
+      </div>
+    );
+  }
 }
-setInterval(updateTimer,1000)//do updateTimer every 1s
-
-
-
+class UserDog extends React.Component{
+  render(){
+    return (
+      <div className="UserDog">
+        <p>My dog's name is {this.props.name}<br></br>
+           He is {this.props.color}
+        </p>
+      </div>
+    );
+  }
+}
+class UserInfor extends React.Component{
+  render(){
+    return(
+      <div>
+        <UserDetail name={this.props.name} age={this.props.age}/>
+        <UserDog name="Kiss" color="black" />
+      </div>
+    );
+  }
+}
+const element =<UserInfor name="Dang Thi Bao Ngan" age="21" />;
+ ReactDOM.render(
+    element,
+    document.getElementById('root'));
