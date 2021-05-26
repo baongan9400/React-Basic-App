@@ -11,11 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.hello {
-  padding-left: 40px;
-  color: blueviolet;
-}
-.number {
-  padding-left: 60px;
-  color: rgb(11, 4, 51);
-}
