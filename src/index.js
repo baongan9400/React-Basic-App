@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'
-import Counter from './component/counter'
+import Counters from './component/listCounter'
 
 ReactDOM.render(
-    <Counter/>,
+    <Counters/>,
     document.getElementById('root'));
